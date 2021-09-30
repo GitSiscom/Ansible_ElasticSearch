@@ -3,9 +3,11 @@ Script de automação no Ansible
 
 Objetivo: 
 
-Configurar um ambiente novo Linux (CentOS), instalando as ferramentas necessárias para atuação diárias. 
+Instalação do software ElasticSearch
 
-Implementado código para instalar o Docker e a ferramenta de gerenciamento de containers Web.
+![monitoring-cluster-alerts](https://user-images.githubusercontent.com/90550531/135507243-84cbd343-8e05-4134-85b2-522d1cf3ab96.gif)
+
+** Recomendado clonar o repositório Ansible_Docker para realizar a instalação completa **
 
 # Código 
 ---
@@ -13,11 +15,13 @@ Implementado código para instalar o Docker e a ferramenta de gerenciamento de c
      {Altere e coloque o nome do grupo de hosts}
 		 
   remote_user: 
-					{Usuário para efetuar a comunicação e executar os scripts}
+  
+ 	{Usuário para efetuar a comunicação e executar os scripts}
 		
   roles:
     - Docker
     - Portainer
+    - Elastic
 
 ---
 Explicação sobre cada item:
@@ -64,12 +68,9 @@ Explicação sobre cada item:
 
 - Depois dessas alterações rode comando para executar a sua playbook
 
-	 Command: ansible-playbook docker.yml 
-	
-![ansible-playbook](https://user-images.githubusercontent.com/90550531/135503485-ef4e3111-fcc8-434a-bf79-5945027ad803.png)
+	 Command: ansible-playbook elastic.yml 
 
 ######  Caso queira debugar o arquivo pode rodar conforme abaixo ######	
 
-	Command: ansible-playbook docker.yml -vvv
-	
-![playbook](https://user-images.githubusercontent.com/90550531/135503608-1191100b-db7c-4dc7-acd3-b41e0de75a2c.png)
+	Command: ansible-playbook elastic.yml -vvv
+
