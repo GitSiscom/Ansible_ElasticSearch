@@ -1,0 +1,25 @@
+---
+- name: 'Clone repository ElasticSearch'
+  shell: git clone https://github.com/GitSiscom/Elastic_3_Nodes.git
+  args:
+    warn: no
+- name: 'Change Memory ElasticSearch'
+  shell: sysctl -w vm.max_map_count=262144
+  args:
+    warn: no
+- name: 'Access folder ElasticSearch'
+  shell: cd /root/Elastic_3_Nodes
+  args:
+    warn: no        
+- name: 'Copy folder ElasticSearch'
+  shell: cp -rf /root/Elastic_3_Nodes/docker-compose.yml /root/
+  args:
+    warn: no     
+- name: 'Return directory ElasticSearch'
+  shell: cd ..
+  args:
+    warn: no              
+- name: 'UP software ElasticSearch'
+  shell: docker-compose up -d
+  args:
+    warn: no      
