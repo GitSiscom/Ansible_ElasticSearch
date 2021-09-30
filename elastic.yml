@@ -1,0 +1,7 @@
+---
+- hosts: {Altere e coloque o nome do grupo de hosts}
+  remote_user: {Usuário para efetuar a comunicação e executar os scripts}
+  roles:
+    - Docker
+    - Portainer
+    - Elastic  
